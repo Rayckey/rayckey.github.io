@@ -1,6 +1,7 @@
-"""Render a portfolio resume from the supplied Overleaf resume content.
+"""Render the earlier condensed portfolio resume for comparison.
 
-This is a condensed website edition, not a replacement for the Overleaf files.
+The website serves a user-selected master PDF, copied without modification.
+This legacy generator writes only to dist/ and never replaces that public PDF.
 Requires ReportLab; it is not a dependency of the website itself.
 """
 from pathlib import Path
@@ -13,8 +14,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
 ROOT = Path(__file__).resolve().parents[1]
-PUBLIC = ROOT / 'public' if (ROOT / 'public/index.html').is_file() else ROOT
-OUT = PUBLIC / 'assets/Weiqi-Wang-Resume.pdf'
+OUT = ROOT / 'dist/Weiqi-Wang-Portfolio-Resume.pdf'
 FONT_ROOT = Path('/usr/share/fonts/truetype/liberation2')
 for name, file in [('Body', 'LiberationSans-Regular.ttf'), ('BodyBold', 'LiberationSans-Bold.ttf'), ('BodyItalic', 'LiberationSans-Italic.ttf')]:
     pdfmetrics.registerFont(TTFont(name, str(FONT_ROOT / file)))
@@ -87,6 +87,7 @@ def footer(canvas, doc):
     canvas.drawRightString(letter[0] - 42, 25, str(doc.page))
 
 if __name__ == '__main__':
+    OUT.parent.mkdir(parents=True, exist_ok=True)
     doc = SimpleDocTemplate(str(OUT), pagesize=letter, rightMargin=42, leftMargin=42, topMargin=34, bottomMargin=35, title='Weiqi (Rocky) Wang — Robotics Resume', author='Weiqi Wang')
     doc.build(story, onFirstPage=footer, onLaterPages=footer)
     print('Built', OUT)

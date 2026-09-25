@@ -25,9 +25,12 @@ Run `python3 scripts/serve.py` and open http://localhost:8765/.
 - `styles.css`: blue theme and responsive layout.
 - `site.js`: video controls, email copying, and navigation.
 - `scripts/build_pages.py`: research case-study source and asset-version links.
-- `scripts/build_resume.py`: optional PDF regeneration; requires ReportLab and Liberation Sans.
+- `scripts/build_resume.py`: legacy condensed resume generator; writes only to ignored `dist/`.
 - `assets/`: portrait, original research media, fonts, and prepared resume.
 
-After changing styles, the favicon, or research page source, run
+The downloadable resume is the selected master PDF at `assets/Weiqi-Wang-Resume.pdf`,
+copied unchanged. The legacy generator does not replace it.
+
+After changing styles, the favicon, the resume PDF, or research page source, run
 `python3 scripts/build_pages.py`. The deployment workflow runs this automatically.
 The portrait uses its original 3:4 proportions and scales without cropping.

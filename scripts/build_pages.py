@@ -14,7 +14,7 @@ def asset_url(path):
 def page(title, description, body):
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f3f7ff"><meta name="description" content="{escape(description, quote=True)}"><title>{escape(title)} · Weiqi Wang</title><link rel="icon" href="../{asset_url('assets/favicon.svg')}" type="image/svg+xml"><link rel="stylesheet" href="../assets/fonts.css"><link rel="stylesheet" href="../{asset_url('styles.css')}"><script src="../site.js" defer></script></head>
-<body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="container nav-row"><a class="wordmark" href="../" aria-label="Weiqi Wang, home"><span class="monogram" aria-hidden="true">w<span>.</span></span><span>Weiqi Wang<span class="wordmark-sub">ROBOTICS ENGINEER</span></span></a><nav aria-label="Main navigation"><a href="../#about">About</a><a href="../#work">Work</a><a href="../#publications">Publications</a><a href="../#contact">Contact</a></nav><a class="nav-resume" href="../assets/Weiqi-Wang-Resume.pdf">Resume ↗</a></div></header>
+<body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="container nav-row"><a class="wordmark" href="../" aria-label="Weiqi Wang, home"><span class="monogram" aria-hidden="true">w<span>.</span></span><span>Weiqi Wang<span class="wordmark-sub">ROBOTICS ENGINEER</span></span></a><nav aria-label="Main navigation"><a href="../#about">About</a><a href="../#work">Work</a><a href="../#publications">Publications</a><a href="../#contact">Contact</a></nav><a class="nav-resume" href="../{asset_url('assets/Weiqi-Wang-Resume.pdf')}">Resume ↗</a></div></header>
 <main id="main">{body}</main><footer class="site-footer container"><span>© <span data-year>2026</span> Weiqi (Rocky) Wang</span><span>Learning · Planning · Control</span><a href="#main">Back to top ↑</a></footer></body></html>'''
 
 SUN = '''
@@ -45,10 +45,10 @@ COACTIVITY = '''
 </div><aside class="case-sidebar" aria-label="Project summary"><div><p class="mono">MY CONTRIBUTION</p><p>System development, hierarchical optimization, robot footprint and reachability integration, and semantic scene modeling.</p></div><div><p class="mono">ROBOTICS SKILLS</p><ul class="tags"><li>Robot navigation</li><li>Numerical optimization</li><li>Reachability analysis</li><li>Human–robot interaction</li><li>Computational geometry</li></ul></div><div><p class="mono">PUBLICATION</p><p>IEEE ICRA, 2023.<br>Co-first-authored research.</p></div></aside></div><div class="case-footer"><a class="text-link" href="sun.html">← SUN / Kuafu</a><a class="text-link" href="../#work">All selected work ↗</a></div></div>'''
 
 if __name__ == '__main__':
-    # Keep the homepage and case studies on the same stylesheet revision.
+    # Refresh shared stylesheet, favicon, and resume versions across all pages.
     home = PUBLIC / 'index.html'
     html = home.read_text()
-    for path in ('styles.css', 'assets/favicon.svg'):
+    for path in ('styles.css', 'assets/favicon.svg', 'assets/Weiqi-Wang-Resume.pdf'):
         html = re.sub(rf'href="{re.escape(path)}(?:\?v=[^"]*)?"',
                       f'href="{asset_url(path)}"', html)
     home.write_text(html)
