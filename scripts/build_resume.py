@@ -13,7 +13,8 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'public/assets/Weiqi-Wang-Resume.pdf'
+PUBLIC = ROOT / 'public' if (ROOT / 'public/index.html').is_file() else ROOT
+OUT = PUBLIC / 'assets/Weiqi-Wang-Resume.pdf'
 FONT_ROOT = Path('/usr/share/fonts/truetype/liberation2')
 for name, file in [('Body', 'LiberationSans-Regular.ttf'), ('BodyBold', 'LiberationSans-Bold.ttf'), ('BodyItalic', 'LiberationSans-Italic.ttf')]:
     pdfmetrics.registerFont(TTFont(name, str(FONT_ROOT / file)))

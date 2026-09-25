@@ -1,11 +1,12 @@
-"""Preview public/ locally, with byte-range support for video seeking."""
+"""Preview the website locally, with byte-range support for video seeking."""
 from argparse import ArgumentParser
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import re
 
-PUBLIC = Path(__file__).resolve().parents[1] / 'public'
+ROOT = Path(__file__).resolve().parents[1]
+PUBLIC = ROOT / 'public' if (ROOT / 'public/index.html').is_file() else ROOT
 
 
 class PreviewHandler(SimpleHTTPRequestHandler):
@@ -19,6 +20,9 @@ class PreviewHandler(SimpleHTTPRequestHandler):
         value = self.headers.get('Range', '')
         match = re.fullmatch(r'bytes=(\d*)-(\d*)', value.strip())
         path = Path(self.translate_path(self.path))
+        if any(part.startswith('.') for part in path.relative_to(PUBLIC).parts):
+            self.send_error(404)
+            return None
         if not match or not any(match.groups()) or not path.is_file():
             return super().send_head()
         file = path.open('rb')

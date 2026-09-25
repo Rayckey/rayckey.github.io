@@ -5,7 +5,7 @@ from hashlib import sha256
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-PUBLIC = ROOT / 'public'
+PUBLIC = ROOT / 'public' if (ROOT / 'public/index.html').is_file() else ROOT
 
 def asset_url(path):
     version = sha256((PUBLIC / path).read_bytes()).hexdigest()[:12]
