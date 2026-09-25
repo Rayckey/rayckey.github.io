@@ -37,7 +37,7 @@ def section(text): p(text, 'section')
 def role(text): p(text, 'role')
 
 p('Weiqi (Rocky) Wang', 'name')
-p('Robotics Researcher &amp; Engineer · UCLA Ph.D. Graduate', 'body')
+p('Robotics Engineer · UCLA Ph.D. Graduate', 'body')
 p('<link href="mailto:wwang79@g.ucla.edu">wwang79@g.ucla.edu</link> · 213-952-8007<br/><link href="https://www.linkedin.com/in/weiqiwang93">linkedin.com/in/weiqiwang93</link> · <link href="https://github.com/Rayckey">github.com/Rayckey</link>', 'contact')
 section('EDUCATION')
 p('<b>University of California, Los Angeles</b> — Ph.D., Mechanical Engineering (Robotics) · September 2026<br/><i>Dissertation: Embodiment-Aware Task Realization for Human–Robot Coexistence</i>')
@@ -61,7 +61,7 @@ bullet('Contributed to optimization-based mobile manipulation using Virtual Kine
 
 story.append(PageBreak())
 p('Weiqi (Rocky) Wang', 'name')
-p('Robotics Researcher &amp; Engineer · <link href="mailto:wwang79@g.ucla.edu">wwang79@g.ucla.edu</link>', 'contact')
+p('Robotics Engineer · <link href="mailto:wwang79@g.ucla.edu">wwang79@g.ucla.edu</link>', 'contact')
 section('INDUSTRY EXPERIENCE')
 role('OffWorld, Inc. | Software Intern | Pasadena, CA<br/>June–September 2023; June–September 2021')
 bullet('Developed a Python computational-geometry simulation framework for prototype autonomous underground mining robots, modeling environmental changes caused by robot sawing actions.')
