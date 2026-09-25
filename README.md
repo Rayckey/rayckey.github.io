@@ -1,16 +1,19 @@
-# Weiqi Wang — personal website
+# Rocky Wang — personal website
 
 Personal homepage for Weiqi (Rocky) Wang, a UCLA Ph.D. graduate in robotics.
 Configured for https://rayckey.github.io/.
 
-## Publish
+## Deployment
 
-1. Create an empty public repository named `rayckey.github.io` under `Rayckey`.
-2. Push this repository's `main` branch to its configured GitHub origin.
-3. In **Settings → Pages**, choose **GitHub Actions** as the source.
-4. Run **Actions → Deploy personal website → Run workflow** on `main`.
+In **Settings → Pages**, set the source to **GitHub Actions**. The deployment
+workflow builds the research pages and publishes the contents of `public/`.
 
-Later pushes to `main` publish automatically. The workflow uploads only `public/`.
+Pushes to `main` publish automatically. To publish manually, open
+**Actions → Deploy personal website → Run workflow** and select `main`.
+
+The site must use this workflow because the repository root contains source files
+and this README; the homepage is in `public/index.html`.
+
 The full SUN video should be committed through Git; it exceeds the browser's
 per-file upload limit. No Git LFS or website framework is required.
 
