@@ -53,6 +53,17 @@
 .sun-demo .caption-link{font-size:12px}
 .research-note p:first-child{margin-top:0}
 .publications-section{padding-top:98px}
+.project-copy>p strong{color:var(--ink);font-weight:600}
+.project-copy>.skills-label,.experience-detail>.skills-label{font:10px/1.6 var(--mono);letter-spacing:.06em;color:var(--blue);margin-top:22px}
+.skills-label+.tags{margin-top:9px}
+.experience-points{margin:15px 0 0;padding-left:18px;color:var(--muted);font-size:12px;line-height:1.9}
+.experience-points li+li{margin-top:10px}
+.experience-points li::marker{color:var(--blue)}
+.experience-points strong{color:var(--ink);font-weight:600}
+.research-note .tags{margin:12px 0 0}
+.research-note{display:grid;grid-template-columns:20px minmax(0,1fr) auto;align-items:start;gap:20px}
+.research-note .text-link{align-self:center}
+@media(max-width:820px){.research-note{grid-template-columns:20px minmax(0,1fr);gap:12px}.research-note .text-link{grid-column:2;margin-left:0;justify-self:start}}
 @media(max-width:1100px){.about-section{column-gap:40px;row-gap:36px}.about-copy>p:not(.eyebrow){font-size:14px}.about-details{gap:24px 36px;grid-template-columns:1.2fr 1fr;grid-template-rows:min-content 1fr}.about-details .education{grid-row:1/span 2}.about-details .toolkit,.about-details .teaching{grid-column:2}}
 @media(max-width:820px){.about-section{column-gap:32px;padding-top:44px}.about-heading h1{font-size:48px}.publications-section{padding-top:68px}.sun-demo{padding:24px}}
 @media(max-width:600px){.about-section{grid-template-columns:1fr;gap:26px;padding-top:36px;padding-bottom:42px}.about-intro{display:contents}.about-heading{order:0;margin-bottom:0}.about-portrait{order:1}.about-copy{order:2}.about-details{order:3;grid-column:1;display:grid;grid-template-columns:1fr;grid-template-rows:none;gap:24px;padding-top:28px}.about-details .education,.about-details .toolkit,.about-details .teaching{grid-column:1;grid-row:auto}.about-heading .eyebrow{font-size:10px;margin-bottom:16px}.about-heading h1{font-size:46px}.about-copy>p:not(.eyebrow){font-size:14px}.about-details .toolkit,.about-details .teaching{border-top:1px solid var(--line);padding-top:23px}.sun-demo{padding:15px}.publications-section{padding-top:53px}}
